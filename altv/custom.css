@@ -1,0 +1,16 @@
+#contenitore {
+  width: 260px;
+}
+#contenitore  div{
+  height: 30px;
+  width: 30px;
+  /* background: white; */
+  border: solid 1px black;
+  display: inline-block;
+}
+.rosso{
+  background: red
+}
+.verde{
+  background: green
+}
