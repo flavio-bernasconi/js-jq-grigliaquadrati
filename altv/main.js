@@ -1,110 +1,58 @@
-$(document).ready(function(){
-
-var colore = ["verde","rosso"];
-var contenuto;
-var rosso = [];
-
-// for (var i = 0; i < 64; i++) {
-//   var caso = Math.floor(Math.random()*100);
-//   var random = "";
-//   if(caso % 3 == 0){
-//     random = 1;
-//   }
-//   else {
-//     random = 0;
-//   }
-//
-//   contenuto = document.getElementById('contenitore').innerHTML;
-//
-//
-//     document.getElementById('contenitore').innerHTML  = contenuto + "<div " + "class='" + colore[random] + "'"  +  ">" + "</div>";
-//
-//
-//     if (colore[random] == "rosso") {
-//       console.log("aggiungo la classe rosso");
-//       rosso.push(i);
-//     }
-//     else{
-//       console.log("verde");
-//     }
-//     if (rosso.length >= 15) {
-//       colore[1] = "verde"
-//     }
-// }
+  $(document).ready(function(){
 
 
-for (var i = 0; i < 64; i++) {
-  var caso = Math.floor(Math.random()*100);
-  var random = "";
-  if(caso % 3 == 0){
-    random = 1;
+  //array che popolo con 15 volte 'rosso' e 49 'verde'
+  //i primi quindici saranno rosso
+  //da 16 a 64 saranno verde
+  //devo trovare il modo di non metterli in ordine
+  var colori = [];
+  for (var i = 0; i < 64; i++) {
+    if (i < 15) {
+      colori.push("rosso");
+    }
+    else {
+      colori.push("verde");
+    }
   }
-  else {
-    random = 0;
+  //funzione shuffle array
+  function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+  }
+  // var numeroStrano = Math.random() - 0.5;
+  // console.log(numeroStrano);
+
+  shuffle(colori);
+  console.log("dopo lo shuffle",colori);
+
+
+  //creo loop 64 cicli ogni volta crea un div con una classe rosso o verde presa
+  //dall array colori che ora é mischiato quindi l ordine sará casuale
+  for (var i = 0; i < 64; i++) {
+    contenuto = document.getElementById('contenitore').innerHTML;
+
+    document.getElementById('contenitore').innerHTML  = contenuto + "<div " + "class='" + colori[i] + "'"  +  ">" + "</div>";
+
+    //controllo quante volte esce il valore 'rosso' per controllo
+    // if (colori[i] == "rosso") {
+    //   var conteggio = conteggio++;
+    //   console.log(conteggio);
+    // }
   }
 
-  contenuto = document.getElementById('contenitore').innerHTML;
 
 
-    document.getElementById('contenitore').innerHTML  = contenuto + "<div " + "class='" + colore[random] + "'"  +  ">" + "</div>";
-
-}
-
-
-
-
-
-
-
-
-
-console.log(rosso);
+    //
+    // $("div.rosso").click(function(){
+    //   $(this).css("background","red");
+    // });
+    //
+    //
+    // $("div.verde").click(function(){
+    //   $(this).css("background","green");
+    // });
 
 
 
 
 
-  //
-  // $("div.rosso").click(function(){
-  //   $(this).css("background","red");
-  // });
-  //
-  //
-  // $("div.verde").click(function(){
-  //   $(this).css("background","green");
-  // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // var contenuto;
-  // //scrivo la lista ripeto
-  // function generatore(x,y){
-  //   for (var i = 0; i < x; i++) {
-  //     //numero casuale fra 1 e 2
-  //     var random = Math.floor(Math.random()*2);
-  //
-  //     contenuto = document.getElementById('contenitore').innerHTML;
-  //
-  //     //genero 64 div con una classe casuale fra rosse e verde contennuto nell array colore
-  //     //richiamando poi il numero casuale come indice dell array
-  //     // document.getElementById('contenitore').innerHTML  = contenuto + "<div " + "class='" + colore[random] + "'"  +  ">" + "</div>";
-  //     document.getElementById('contenitore').innerHTML  = contenuto + "<div " + "class='" + y + "'"  +  ">" + "</div>";
-  //
-  //   }
-  // }
-  //
-  // generatore(15,colore[1]);
-  // generatore(49,colore[0]);
-
-
-});
+  });
