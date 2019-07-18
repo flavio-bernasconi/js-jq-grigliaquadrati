@@ -1,10 +1,11 @@
 #contenitore {
   width: 260px;
+  margin-top: 50px;
 }
 #contenitore  div{
   height: 30px;
   width: 30px;
-  /* background: white; */
+  background: white;
   border: solid 1px black;
   display: inline-block;
 }
